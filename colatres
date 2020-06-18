@@ -1,0 +1,104 @@
+package Mozart;
+
+import java.util.Scanner;
+
+
+public class Amadeus {
+int TOPE=100;
+ int O=0;
+int K=10, aux;
+int[] Numeros=new int[K];
+    
+
+    public void Llenar(){
+        for(O=0;O<K;O++){
+            Numeros[O] =(int) (Math.random() * TOPE);
+            for(int j=0; j<O;j++){
+            if(Numeros[O]==Numeros[j]){
+                           O--;
+            }
+            }
+         Numeros[O] =(int) (Math.random() * TOPE);           
+                   for ( O=0; O< K; O++) {
+                Numeros[O] =(int) (Math.random() * TOPE);
+                   for(int j=0; j<O;j++){
+                       if(Numeros[O]==Numeros[j]){
+                           O--;
+                       }
+                   }
+               System.out.println("-->"+Numeros[O]);
+                   } 
+           }
+            }           
+       
+    public void Mostrar(){
+        if(TOPE>0){
+                    System.out.println("los nombres son:");
+                    for(O = 0; O < K; O++){
+                    System.out.println("posicion de ["+O+"]=" +Numeros[O]);
+                    
+                    }
+                    }else{
+                        System.out.println(" vacia");
+                    }
+    }
+       
+    public void Ordenar(){
+         for(int j=0;j<K;j++){
+                        for( O=0;O<K-1;O++){
+                            if(Numeros[O]>Numeros[O+1]){
+                             aux=Numeros[O];
+                             Numeros[O]=Numeros[O+1];
+                             Numeros[O+1]=aux;
+                              
+                            }
+                        }                       
+                    } 
+                    {
+                        System.out.println(" ordenados");
+                    }
+    }
+    
+    public void VACIAR(){
+         TOPE=0;
+                    System.out.println("se ha vaciado");
+    }
+    public static void main(String[] args) {
+        Scanner leer=new Scanner(System.in);
+       Amadeus cola= new Amadeus();
+        int opcion;
+                
+        System.out.println("Hola extraño");
+        
+        
+        do{
+            
+              System.out.println("1-llenar");
+              System.out.println("2-mostrar");
+              System.out.println("3-ordenar");
+              System.out.println("4-vaciar");
+               System.out.println("5-salir");
+               
+               System.out.print("Opcion es --> ");
+        opcion = leer.nextInt();
+        
+        switch (opcion){
+            
+            case 1:
+               cola.Llenar();
+                break;               
+            case 2:
+              cola.Mostrar();              
+                break;
+            case 3:
+                cola.Ordenar();
+                break;
+                
+            case 4:
+                cola.VACIAR();
+                break;                            
+        }
+      }
+      while (opcion!=5);  
+    }  
+}
